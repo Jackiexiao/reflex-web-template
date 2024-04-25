@@ -22,8 +22,9 @@ def sidebar_button(name, is_selected):
         ),
         background=rx.cond(
             is_selected,
-            rx.color("mauve", 2),
-            "transparent",
+            rx.color("violet", 10),
+            # "transparent",
+            rx.color("violet", 8),
         ),
         text_align="left",
         width="100%",
@@ -50,12 +51,10 @@ def settings():
     return rx.vstack(
         rx.heading(
             "Platform Settings",
-            color="#FFFFFF",
             font_weight="600",
         ),
         rx.text(
             "All of your settings in one place.",
-            color="#FFFFFF",
         ),
         rx.divider(),
         padding_top="10px",

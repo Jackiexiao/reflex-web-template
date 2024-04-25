@@ -5,7 +5,7 @@ from .style import button_style
 
 def shorten_to_k(number):
     if number >= 1000:
-        return "{:.0f}k+".format(number / 1000)
+        return f"{number / 1000:.0f}k+"
     else:
         return str(number)
 
@@ -15,18 +15,18 @@ def github_desktop() -> rx.Component:
         rx.flex(
             rx.icon(
                 "github",
-                color="#6f6d78",
+                color=rx.color("mauve", 9),
             ),
             rx.text(
                 "Github",
-                color="white",
+                color=rx.color("mauve", 9),
             ),
             rx.text(
                 "15k",
-                color="#6151F3",
                 background="linear-gradient(180deg, rgba(97, 81, 243, 0.20) 0%, rgba(86, 70, 237, 0.20) 100%);",
                 border_radius="5px",
                 padding="0px 3px",
+                color=rx.color("mauve", 9),
             ),
             spacing="2",
             style=button_style,

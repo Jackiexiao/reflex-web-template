@@ -12,6 +12,73 @@ from .buttons.github import github
 from .buttons.sidebar import sidebar_button
 
 
+class NavbarState(rx.State):
+    """The state for the navbar component."""
+
+    # Whether the sidebar is open.
+    sidebar_open: bool = False
+
+    search_input: str = ""
+
+    enter: bool = False
+
+    banner: bool = True
+
+    ai_chat: bool = True
+
+    current_category = "All"
+
+    def toggle_banner(self):
+        self.banner = not self.banner
+
+    def toggle_sidebar(self):
+        self.sidebar_open = not self.sidebar_open
+
+    def toggle_ai_chat(self):
+        self.ai_chat = not self.ai_chat
+
+    def update_category(self, tag):
+        self.current_category = tag
+
+
+def banner():
+    return rx.cond(
+        NavbarState.banner,
+        rx.box(
+            rx.hstack(
+                rx.text(
+                    " 🚀 Reflex live on Product Hunt! Check out our launch ",
+                    rx.link(
+                        "here",
+                        href="https://www.producthunt.com/posts/reflex-6",
+                        style={
+                            "text_decoration": "underline",
+                        },
+                        color="#fff",
+                        is_external=True,
+                    ),
+                    ". 🎉",
+                    font_weight=600,
+                    text_align="center",
+                    width="100%",
+                ),
+                rx.icon(
+                    tag="x",
+                    z_index=1000,
+                    on_click=NavbarState.toggle_banner,
+                ),
+                width="100%",
+                align_items="center",
+            ),
+            color="#fff",
+            background_color=rx.color("violet", 9),
+            border_bottom=f"1px solid {rx.color('mauve', 4)}",
+            padding_y=["0.8em", "0.8em", "0.5em"],
+            width="100%",
+        ),
+    )
+
+
 def resource_header(text):
     return rx.text(
         text,
@@ -161,53 +228,60 @@ def blur_background():
 
 def navbar(sidebar: rx.Component = None) -> rx.Component:
     return rx.flex(
-        rx.link(
-            rx.box(
-                rx.color_mode_cond(
-                    rx.image(
-                        src="/logos/light/reflex.svg",
-                        alt="Reflex Logo",
-                        height="20px",
-                        justify="start",
-                    ),
-                    rx.image(
-                        src="/logos/dark/reflex.svg",
-                        alt="Reflex Logo",
-                        height="20px",
-                        justify="start",
+        banner(),
+        rx.flex(
+            rx.link(
+                rx.box(
+                    rx.color_mode_cond(
+                        rx.image(
+                            src="/logos/light/reflex.svg",
+                            alt="Reflex Logo",
+                            height="20px",
+                            justify="start",
+                        ),
+                        rx.image(
+                            src="/logos/dark/reflex.svg",
+                            alt="Reflex Logo",
+                            height="20px",
+                            justify="start",
+                        ),
                     ),
                 ),
+                href="/",
             ),
-            href="/",
-        ),
-        navigation_section(),
-        rx.box(
-            flex_grow="1",
-        ),
-        blur_background(),
-        rx.flex(
-            github(),
+            navigation_section(),
             rx.box(
-                discord(),
-                display=["none", "none", "none", "none", "flex", "flex"],
+                flex_grow="1",
             ),
-            rx.box(
-                dark_switch(),  # or `color()` in reflex-web repo
-                # display=["none", "none", "none", "none", "flex", "flex"],
+            blur_background(),
+            rx.flex(
+                github(),
+                rx.box(
+                    discord(),
+                    display=["none", "none", "none", "none", "flex", "flex"],
+                ),
+                rx.box(
+                    dark_switch(),  # or `color()` in reflex-web repo
+                    # display=["none", "none", "none", "none", "flex", "flex"],
+                ),
+                rx.box(
+                    sidebar_button(sidebar),
+                    display=["flex", "flex", "flex", "flex", "none", "none"],
+                ),
+                spacing="3",
+                align_items="center",
             ),
-            rx.box(
-                sidebar_button(sidebar),
-                display=["flex", "flex", "flex", "flex", "none", "none"],
-            ),
-            spacing="3",
+            background_color=rx.color("mauve", 1),
+            border_bottom=f"1px solid {rx.color('mauve', 4)}",
+            width="100%",
             align_items="center",
+            spacing="5",
+            padding="7px 20px 7px 20px;",
         ),
-        id="navbar",
-        position="fixed",
         width="100%",
-        top="0px",
         z_index="5",
+        top="0px",
+        position="fixed",
         align_items="center",
-        spacing="5",
-        padding="7px 20px 7px 20px;",
+        direction="column",
     )

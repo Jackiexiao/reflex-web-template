@@ -12,7 +12,7 @@ def auth_form():
                         font_size="24px",
                         line_height="2em",
                         weight="bold",
-                        color="#FFFFFF",
+                        color=rx.color("mauve", 12),
                         align="center",
                         height="32px",
                         width="350px",
@@ -23,7 +23,7 @@ def auth_form():
                         "Example authentication form.",
                         font_size="14px",
                         line_height="2em",
-                        color="#A1A1AA",
+                        color=rx.color("mauve", 10),
                         align="center",
                         height="20px",
                         width="350px",
@@ -101,5 +101,4 @@ def auth():
             width="100%",
             height="100%",
         ),
-        # appearance="dark",
     )

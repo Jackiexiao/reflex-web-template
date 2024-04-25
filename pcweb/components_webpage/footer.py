@@ -221,7 +221,7 @@ def footer(style=footer_style):
             ),
             rx.hstack(
                 rx.text(
-                    "Copyright © 2024 Pynecone, Inc.",
+                    "Copyright © 2024 Reflex, Inc.",
                     style=footer_item_style,
                     font_size="0.8em",
                 ),

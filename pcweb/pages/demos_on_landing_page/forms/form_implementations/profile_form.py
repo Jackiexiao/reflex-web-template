@@ -25,14 +25,14 @@ def profileBar():
 
 def username_field():
     return rx.vstack(
-        rx.text("Username", color="#FAFAFA"),
+        rx.text("Username"),
         rx.input(
             placeholder="JohnDoe123",
             width="100%",
         ),
         rx.text(
             "Your username is how other community members will see you. This name will be used to credit you for things you share on Reflex. You can change it at any time.",
-            color="#A1A1AA",
+            # color="#A1A1AA",
         ),
         padding_top="1px",
         **common_style,
@@ -41,7 +41,7 @@ def username_field():
 
 def notifiction_field():
     return rx.vstack(
-        rx.text("Notifications", color="#FAFAFA"),
+        rx.text("Notifications"),  # , color="#FAFAFA"
         rx.checkbox(
             "Email me when someone mentions me in a post",
             default_checked=True,
@@ -59,7 +59,7 @@ def notifiction_field():
         ),
         rx.text(
             "You can manage verified email addresses in your email settings.",
-            color="#A1A1AA",
+            # color="#A1A1AA",
         ),
         **common_style,
     )
@@ -67,11 +67,11 @@ def notifiction_field():
 
 def location_field():
     return rx.vstack(
-        rx.text("Location", color="#FAFAFA"),
+        rx.text("Location"),
         rx.input(placeholder="Enter your location", width="100%"),
         rx.text(
             "Let others know where you are based. You can provide your city, state, or country.",
-            color="#A1A1AA",
+            # color="#A1A1AA",
         ),
         **common_style,
     )
@@ -79,11 +79,11 @@ def location_field():
 
 def bio_field():
     return rx.vstack(
-        rx.text("Bio", color="#FAFAFA"),
+        rx.text("Bio"),
         rx.text_area(placeholder="enter your bio", width="100%"),
         rx.text(
             "You can @mention other users and organizations to link to them.",
-            color="#A1A1AA",
+            # color="#A1A1AA",
         ),
         **common_style,
     )
@@ -91,7 +91,7 @@ def bio_field():
 
 def skill_level():
     return rx.vstack(
-        rx.text("Skill Level", color="#FAFAFA"),
+        rx.text("Skill Level"),
         rx.radio(
             ["1", "2", "3", "4", "5"],
             direction="row",
@@ -100,7 +100,7 @@ def skill_level():
         ),
         rx.text(
             "Rate your skill level in the technology you are most comfortable with. This will help others understand your expertise.",
-            color="#A1A1AA",
+            # color="#A1A1AA",
         ),
         **common_style,
     )

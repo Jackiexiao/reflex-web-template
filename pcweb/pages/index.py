@@ -75,13 +75,13 @@ def config_button():
 
 def example_button(text):
     return rx.button(
-        text,
+        rx.text(text),
         border_radius="8px;",
         border="1px solid rgba(186, 199, 247, 0.12);",
         background=rx.cond(
             DemoState.demo == text,
-            "#282828",
-            "rgba(161, 157, 213, 0.03);",
+            rx.color("violet", 10),
+            rx.color("violet", 8),
         ),
         backdrop_filter="blur(2px);",
         on_click=lambda: DemoState.set_demo(text),
@@ -408,12 +408,13 @@ def hero_section_buttons(mobile=False):
         rx.link(
             rx.button(
                 "Get a demo",
-                variant="ghost",
-                border_radius="8px",
-                border="2px solid rgba(186, 199, 247, 0.12)",
+                # variant="ghost",
+                variant="soft",
+                color=rx.color("mauve", 12),
+                box_shadow="0px 2px 9px -4px rgba(64, 51, 192, 0.70), 0px 0px 6px 2px rgba(255, 255, 255, 0.12) inset, 0px 0px 0px 1px rgba(255, 255, 255, 0.09) inset",
+                border=f"1px solid {rx.color('mauve', 4)}",
                 # background="rgba(161, 157, 213, 0.03)",
                 backdrop_filter="blur(2px)",
-                # color="white",
                 size="4",
             ),
             href="https://5dha7vttyp3.typeform.com/to/hQDMLKdX",

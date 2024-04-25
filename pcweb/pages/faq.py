@@ -42,6 +42,7 @@ def faq_item(question, answer, index):
         # border="1px solid #37363F;",
         # background="rgba(47, 43, 55, 0.50);",
         # box_shadow="0px 3px 22px -2px #0C0B0F;",
+        border_bottom=f"2px solid {rx.color('mauve', 5)}",
         width="100%",
     )
 
@@ -76,22 +77,22 @@ def faq_item_mobile(question, answer, index):
 def desktop_view():
     return rx.vstack(
         rx.vstack(
-            rx.flex(
-                rx.chakra.text(
-                    "Common Questions",
-                    background_image="linear-gradient(95deg, #B1A9FB 25.71%, #867BF1 83.81%);",
-                    text_align="center",
-                    background_clip="text",
-                    padding_x="1em",
-                ),
-                border_radius="15px;",
-                border="1px solid #4435D4;",
-                background="linear-gradient(180deg, rgba(97, 81, 243, 0.20) 0%, rgba(86, 70, 237, 0.20) 100%);",
-                box_shadow="0px 3px 6px -3px rgba(34, 25, 121, 0.60), 0px 0px 4px -1px rgba(27, 21, 90, 0.40);",
-            ),
+            # rx.flex(
+            #     rx.chakra.text(
+            #         "Common Questions",
+            #         background_image="linear-gradient(95deg, #B1A9FB 25.71%, #867BF1 83.81%);",
+            #         text_align="center",
+            #         background_clip="text",
+            #         padding_x="1em",
+            #     ),
+            #     border_radius="15px;",
+            #     border="1px solid #4435D4;",
+            #     background="linear-gradient(180deg, rgba(97, 81, 243, 0.20) 0%, rgba(86, 70, 237, 0.20) 100%);",
+            #     box_shadow="0px 3px 6px -3px rgba(34, 25, 121, 0.60), 0px 0px 4px -1px rgba(27, 21, 90, 0.40);",
+            # ),
             rx.chakra.text(
                 "Frequently Asked Questions",
-                font_size="64px;",
+                font_size="48px;",
                 # background_image="linear-gradient(95deg, #D6D6ED 42.14%, #727280 63.21%);",
                 text_align="center",
                 width="650px",

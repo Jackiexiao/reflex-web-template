@@ -15,7 +15,7 @@ WINDOWS_MAX_ROUTES = 125
 app = rx.App(
     style=styles.BASE_STYLE,
     stylesheets=styles.STYLESHEETS,
-    # theme=rx.theme(has_background=True, radius="large", accent_color="violet"),
+    theme=rx.theme(has_background=True, radius="large", accent_color="violet"),
 )
 
 # Add the pages to the app.
